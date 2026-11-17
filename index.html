@@ -8,6 +8,8 @@
     })
 
     const report = {
+        message: "JavaScript executed successfully",
+        timestamp: new Date().toISOString(),
         hostname: location.hostname,
         pathname: location.pathname,
         hasQuery: location.search.length > 0,
